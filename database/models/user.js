@@ -13,6 +13,7 @@ const initUser = (sequelize, Types) => {
       email: Types.STRING,
       phone: Types.STRING,
       password: Types.STRING,
+      photo: Types.STRING,
       is_verified: Types.BOOLEAN,
     },
     {

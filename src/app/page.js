@@ -1,42 +1,34 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "@/components/common/Navbar";
 import Banner from "@/components/common/Banner";
 import Card from "@/components/common/Card";
 
-const inter = Inter({ subsets: ["latin"] });
+export default function Home() {
+  const [data, setData] = useState([]);
 
-const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    window
-      .fetch("./api/product")
-      .then((response) => response.json())
-      .then(({ data }) => {
-        setProducts(data);
-      })
-      .catch((error) => console.error(`Error: ${error}`));
+  const fetchData = useCallback(async () => {
+    const response = await fetch("./api/product");
+    const json = await response.json();
+    setData(json);
   }, []);
 
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
-    <div>
+    <div className="md:h-screen">
       <Navbar />
       <Banner />
       <h1 className="w-full text-center my-8 text-dark-blue font-gilroybold text-xl">
         Product List
       </h1>
       <div className="grid grid-cols-4 gap-4">
-        {products
-          ? products.map((item) => {
-              return <Card item={item} key={item.id} />;
-            })
-          : null}
+        {data.map((item) => {
+          return <Card item={item} key={item.id} />;
+        })}
       </div>
     </div>
   );
-};
-
-export default Home;
+}

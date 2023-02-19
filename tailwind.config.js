@@ -19,6 +19,8 @@ module.exports = {
         white: "#FFFFFF",
         "dark-aqua": "#00A3A0",
         "blue-white": "#EFF1FB",
+        "blue-grey": "#597393",
+        orange: "#FF7200",
       },
       fontFamily: {
         gilroy: "Gilroy",

@@ -1,6 +1,4 @@
-const bcrypt = require("bcrypt");
 import { Product } from "database/models";
-const saltRounds = 10;
 
 export default async function handler(req, res) {
   let data;
@@ -15,5 +13,5 @@ export default async function handler(req, res) {
       break;
   }
 
-  res.status(200).json({ data });
+  res.status(200).json(data);
 }

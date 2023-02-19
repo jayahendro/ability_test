@@ -34,6 +34,10 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
+      photo: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
       is_verified: {
         defaultValue: false,
         type: Sequelize.BOOLEAN,

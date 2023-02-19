@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("RolePermissions", {
+    await queryInterface.createTable("Role_Permissions", {
       role_id: {
         type: Sequelize.INTEGER,
       },
@@ -18,18 +18,18 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-    await queryInterface.addConstraint("RolePermissions", {
+    await queryInterface.addConstraint("Role_Permissions", {
       fields: ["role_id"],
       type: "unique",
       name: "constraint_fkey_role_permission",
     });
-    await queryInterface.addConstraint("RolePermissions", {
+    await queryInterface.addConstraint("Role_Permissions", {
       fields: ["permission_id"],
       type: "unique",
       name: "constraint_fkey_permission_role",
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("RolePermissions");
+    await queryInterface.dropTable("Role_Permissions");
   },
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import ImageProduct from "../../../../public/images/product.png";
 
 const Card = ({ item }) => {
   const price = (text) => {
@@ -11,10 +12,11 @@ const Card = ({ item }) => {
   return (
     <div key={item.id} className="flex justify-center">
       <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-        <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">
+        <Image className="mb-4" src={ImageProduct} />
+        <h5 className="font-proximanova text-dark-blue text-lg leading-tight font-semibold">
           {item.name}
         </h5>
-        <p className="text-gray-700 text-base mb-4">{price(item.price)}</p>
+        <p className="font-semibold text-sm text-orange">{price(item.price)}</p>
       </div>
     </div>
   );

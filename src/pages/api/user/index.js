@@ -26,22 +26,28 @@ export default async function handler(req, res) {
       const { firstName, lastName, idCard, email, phone, password } = req.body;
       let hashPassword;
       if (!firstName) {
-        return res.status(200).json({ error: "Missing First Name" });
+        res.status(400).json({ error: "Missing First Name" });
+        return;
       }
       if (!lastName) {
-        return res.status(200).json({ error: "Missing Last Name" });
+        res.status(400).json({ error: "Missing Last Name" });
+        return;
       }
       if (!idCard) {
-        return res.status(200).json({ error: "Missing Id Card" });
+        res.status(400).json({ error: "Missing Id Card" });
+        return;
       }
       if (!email) {
-        return res.status(200).json({ error: "Missing Email" });
+        res.status(400).json({ error: "Missing Email" });
+        return;
       }
       if (!phone) {
-        return res.status(200).json({ error: "Missing Phone" });
+        res.status(400).json({ error: "Missing Phone" });
+        return;
       }
       if (!password) {
-        return res.status(200).json({ error: "Missing Password" });
+        return res.status(400).json({ error: "Missing Password" });
+        return;
       }
 
       data = await User.findOne({
