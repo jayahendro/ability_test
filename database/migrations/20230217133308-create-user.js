@@ -39,7 +39,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       is_verified: {
-        defaultValue: false,
+        defaultValue: 0,
         type: Sequelize.BOOLEAN,
       },
       created_at: {

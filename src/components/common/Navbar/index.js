@@ -18,7 +18,6 @@ const Navbar = () => {
 
     setToken(token);
     setRole(role);
-    console.log(`role: ${role}`);
   }, []);
 
   const handleLogout = () => {
@@ -55,7 +54,7 @@ const Navbar = () => {
           </a>
           {token ? (
             <div className="flex flex-row items-center">
-              {role ? (
+              {role === 1 ? (
                 <div>
                   <a className="mx-4 hover:underline" href="/user">
                     User List

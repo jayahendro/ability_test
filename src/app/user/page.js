@@ -5,17 +5,21 @@ import { FaInfo, FaEdit, FaTrash } from "react-icons/fa";
 
 export default function User() {
   const [data, setData] = useState([]);
+  const [role, setRole] = useState([]);
   let i = 0;
 
   const fetchData = useCallback(async () => {
-    const response = await fetch("./api/user");
-    const json = await response.json();
-    setData(json.data);
+    if (Cookies.get("role") !== 1) {
+      window.location.href = "/404";
+    } else {
+      const response = await fetch("./api/user");
+      const json = await response.json();
+      setData(json.data);
+    }
   }, []);
 
   useEffect(() => {
     fetchData();
-    Cookies.get;
   }, [fetchData]);
 
   return (
